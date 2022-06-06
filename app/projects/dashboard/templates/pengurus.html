@@ -1,0 +1,67 @@
+{% extends 'baseDashboard.html' %}
+{% set title='KEMA - IMA' %}
+
+{% block _content %}
+<div class="card mb-4">
+  <div class="card-header">
+    <i class="fas fa-table me-1"></i>
+    Data Pengurus Kema IMA FEB-UH Periode 2022
+  </div>
+  <div class="container text-center" style="width: 100%">
+    {% with messages = get_flashed_messages(with_categories = true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }} alert-dismissible fade show mt-3" role="alert">
+      {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+  </div>
+  <div class="card-body">
+    <table id="datatablesSimple">
+      <thead>
+        <tr>
+          <th>Nama</th>
+          <th>NIM</th>
+          <th>Otorisasi</th>
+          <th>Departemen</th>
+          <!-- <th>Age</th>
+          <th>Start date</th>
+          <th>Salary</th> -->
+        </tr>
+      </thead>
+      <!-- <tfoot>
+        <tr>
+          <th>Nama</th>
+          <th>Angkatan</th>
+          <th>Status Kuliah</th>
+          <th>Age</th>
+          <th>Start date</th>
+          <th>Salary</th>
+        </tr>
+      </tfoot> -->
+      <tbody>
+        {% for p in data %}
+        <tr>
+          <!-- bisa begini -->
+          <td>{{ p.name }}</td>
+          <td>{{ p.nim }}</td>
+          <!-- bisa juga begini -->
+          <td>{{ p['otorisasi'] }}</td>
+          <td>{{ p['departemen'] }}</td>
+          <td class="text-center">
+            <a href="/dashboard/pengurus/ubah/{{ p.id }}" class="btn btn-sm rounded-circle btn-outline-secondary"><i class="bi bi-pencil-fill"></i></a>
+            <a href="/dashboard/pengurus/hapus/{{ p.id }}" class="btn btn-sm rounded-circle btn-outline-danger"><i class="bi bi-trash2-fill"></i></a>
+          </td>
+          <!-- <td>61</td>
+          <td>2011/04/25</td>
+          <td>$320,800</td> -->
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

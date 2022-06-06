@@ -1,0 +1,50 @@
+{% extends 'baseAdmin.html' %}
+{% set title='Register - IMA' %}
+{% block title %}Register Pengurus IMA FEB-UH Periode 2022{% endblock %}
+{% block _content %}
+{% macro input(label='', type='', name='', placeholder='') -%}
+  <div class="mb-3">
+    <div class="form-floating mb-3 mb-md-0">
+      <input class="form-control" id="{{ name }}" name="{{ name }}" type="{{ type }}" placeholder="{{ placeholder }}" required />
+      <label for="{{ name }}">{{ label }}</label>
+    </div>
+  </div>
+{%- endmacro %}
+{% macro select(name='') -%}
+<select class="form-select mb-3" id="{{ name }}" name="{{ name }}" required>
+  <option selected value="">-- Pilih Departemen --</option>
+  <option value="Hubeks">Hubeks</option>
+  <option value="Keilmuan">Keilmuan</option>
+  <option value="Kekasi">Kekasi</option>
+  <option value="Pengaderan">Pengaderan</option>
+</select>
+{%- endmacro %}
+<form action="{{ url_for('admin.register') }}" method="POST">
+  <div class="row">
+    <div class="col-md-7">
+      {{ input(label='Nama Lengkap', type='text', name='name', placeholder='Full Name') }}
+    </div>
+    <div class="col-md-5">
+      {{ input(label='NIM', type='text', name='nim', placeholder='NIM') }}
+    </div>
+  </div>
+  {{ input(label='Email', type='email', name='email', placeholder='Email') }}
+  {{ select(name='departemen') }}
+  <div class="row">
+    <div class="col-md-6">
+      {{ input(label='Password', type='password', name='password', placeholder='Password') }}
+    </div>
+    <div class="col-md-6">
+      {{ input(label='Confirm Password', type='password', name='confirm_password', placeholder='Confirm Password') }}
+    </div>
+  </div>
+  <div>
+    <div class="d-grid"><button type="submit" class="btn btn-primary btn-block">Create Account</button></div>
+  </div>
+  <div class="card-footer text-center py-3">
+    <div class="small"><a href="/admin/login">Already have an account..? Log in..!</a></div>
+  </div>
+</form>
+
+
+{% endblock %}

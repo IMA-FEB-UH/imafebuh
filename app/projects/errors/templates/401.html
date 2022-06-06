@@ -1,0 +1,14 @@
+{% extends 'baseAdmin.html' %}
+{% set title='401' %}
+{% block title %}Unauthorized (401){% endblock %}
+
+{% block _content %}
+<div class="alert alert-danger" role="alert">
+  <h4 class="alert-heading"><i class="bi bi-exclamation-triangle-fill"></i>Maaf, akun anda belum diotorisasi</h4>
+  <p>
+    Silahkan kontak admin bagian departemen Kekasi untuk melakukan proses otorisasi
+  </p>
+  <hr>
+  <a class="mb-0" href="/admin/login">Kembali ke halaman login</a>
+</div>
+{% endblock %}

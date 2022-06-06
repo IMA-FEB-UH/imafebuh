@@ -1,0 +1,37 @@
+{% extends 'baseDashboard.html' %}
+{% set title='KEMA|UBAH - IMA' %}
+{% block _content %}
+<div class="container mt-3">
+  <div class="container text-center" style="width: 100%">
+    {% with messages = get_flashed_messages(with_categories = true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+      {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+  </div>
+  <h1>Ubah Data</h1>
+  <form action="{{ url_for('dashboard.ubah_kema', uid=data.id) }}" method="POST">
+    <div class="input-group input-group-sm mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-sm">Nama Lengkap</span>
+      <input type="text" class="form-control" name="name" value="{{ data.name }}">
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-sm">Angkatan</span>
+      <input type="text" class="form-control" name="angkatan" value="{{ data.angkatan }}">
+    </div>
+    <select class="form-select mb-3" aria-label="Default select example" name="status_kuliah">
+      <option selected value="">{{ data.status_kuliah }}</option>
+      <option value="Lulus">Lulus</option>
+      <option value="Belum Lulus">Belum Lulus</option>
+    </select>
+    <div>
+      <div class="d-grid"><button type="submit" id="submit" class="btn btn-primary btn-block">Ubah</button></div>
+    </div>
+  </form>
+</div>
+{% endblock %}

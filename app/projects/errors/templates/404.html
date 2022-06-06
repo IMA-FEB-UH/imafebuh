@@ -1,0 +1,15 @@
+{% extends 'baseDashboard.html' %}
+{% set title='404' %}
+
+{% block _content %}
+<div class="container mt-3">
+  <div class="alert alert-danger" role="alert">
+    <h4 class="alert-heading"><i class="bi bi-exclamation-triangle-fill"></i> Page Not Found! (404)</h4>
+    <p>
+      That pages does not exist. Please try different location
+    </p>
+    <hr>
+    <p class="mb-0">Check again your url</p>
+  </div>
+</div>
+{% endblock %}

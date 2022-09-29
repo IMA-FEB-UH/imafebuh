@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block navbar %}
+  <li class="nav-item"><a class="nav-link" href="/review_buku">Review Page</a></li>
+  {% if 'user' in session %}
+  <li class="nav-item"><a class="nav-link" href="#buatReview" data-bs-toggle="modal" data-bs-target="#editReview">Edit Review</a></li>
+  {% endif %}
+{% endblock %}
+{% block content %}
+{{ ckeditor.load() }}
+<!-- Masthead-->
+<header class="masthead" style="height: 10px !important;">
+  <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+    <div class="d-flex justify-content-center">
+      <div class="text-center">
+        <h1 class="mx-auto my-0 pt-5 text-uppercase">review buku <br>ima</h1>
+        <!-- <a class="btn btn-primary mt-3" href="/tentang_ima">Tentang IMA</a> -->
+        <i class="bi bi-arrow-down-circle-fill display-3 text-light text-opacity-50 mt-3"></i>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- Konten -->
+<div class="container bg-light">
+  <img src="{{ data.foto_buku }}" width="450px" class="img-fluid rounded mx-auto d-block my-5" alt="foto buku">
+  <figure>
+    <blockquote class="blockquote text-center">
+      <p>Review Buku <span class="fst-italic fw-bold">"{{ data.judul }}"</span></p>
+    </blockquote>
+    <figcaption class="blockquote-footer text-center">
+      Oleh <cite title="Source Title">{{ data.penulis }}</cite>
+    </figcaption>
+    <figcaption>
+      <p>{{ data.isi|safe }}</p>
+      <p class="font-monospace small text-muted">dipost pada <span class="fst-italic">{{ data.tanggal }}</span></p>
+    </figcaption>
+  </figure>
+</div>
+<!-- Modal Edit Review -->
+<div class="modal fade" id="editReview" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editBeritaLabel">Form Berita</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form action="{{ url_for('home.konten_review', uid=user.id) }}" method="POST" enctype="multipart/form-data">
+          <div class="mb-3">
+            <label for="judul" class="form-label">Judul Buku</label>
+            <input type="text" class="form-control" id="judul" name="judul" value="{{ data.judul }}" required>
+          </div>
+          <div class="mb-3">
+            <label for="penulis" class="form-label">Penulis Review</label>
+            <input type="text" class="form-control" id="penulis" name="penulis" value="{{ data.penulis }}" required>
+          </div>
+          <div class="mb-3">
+            <label for="foto" class="form-label">Foto Buku</label>
+            <input class="form-control form-control-sm" id="foto" name="foto" type="file" accept="image/*" required>
+          </div>
+          <div class="mb-3">
+            <label for="ckeditor" class="form-label">Isi Review</label>   
+            {{ ckeditor.create() }}
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Ubah</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

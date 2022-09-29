@@ -10,7 +10,11 @@ databaseKema = Blueprint("database", __name__, template_folder="templates")
 @login_required
 def form():
     if request.method == "POST":
-        data = {"name": request.form["name"], "angkatan": request.form["angkatan"]}
+        data = {
+            "name": request.form["name"],
+            "angkatan": request.form["angkatan"],
+            "status_kuliah": request.form["status_kuliah"],
+        }
         DB.collection("KEMA").document().set(data)
         flash("Terima kasih, data anda berhasil diinput", "success")
         return redirect(url_for("database.form"))

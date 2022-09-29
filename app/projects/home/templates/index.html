@@ -1,4 +1,15 @@
 {% extends 'base.html' %}
+{% block navbar %}
+<li class="nav-item"><a class="nav-link" href="#about">Visi & Misi IMA</a></li>
+<li class="nav-item"><a class="nav-link" href="#proker">Proker</a></li>
+<li class="nav-item"><a class="nav-link" href="/review_buku">Review Buku</a></li>
+<li class="nav-item"><a class="nav-link" href="/tulisan_kkn">Tulisan Kema</a></li>
+{% if 'user' in session %}
+<li class="nav-item"><a class="nav-link" href="/dashboard/">Dashboard</a></li>
+{% else %}
+<li class="nav-item"><a class="nav-link" href="/admin/login">Login</a></li>
+{% endif %}
+{% endblock %}
 {% block content %}
 <!-- Masthead-->
 <header class="masthead">
@@ -15,7 +26,7 @@
 <!-- About-->
 <section class="about-section text-center" id="about">
   <div class="container px-4 px-lg-5">
-    <div class="row gx-4 gx-lg-5 justify-content-center">
+    <div class="row justify-content-center">
       <div class="col-lg-8">
         <h2 class="text-dark mb-4">Visi & Misi IMA FEB-UH Periode 2022</h2>
         <h4 class="text-dark">VISI:</h4>
@@ -30,7 +41,7 @@
   </div>
 </section>
 <!-- Projects-->
-<section class="projects-section bg-light" id="projects">
+<section class="projects-section bg-light" id="proker">
   <div class="container px-4 px-lg-5">
     <!-- Project Sekolah Rakyat-->
     <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
@@ -40,6 +51,103 @@
           <h4>Sekolah Rakyat</h4>
           <p class="text-black-50 mb-0">Sebagai bentuk transformasi nilai dari tujuan Kema FEB-UH yakni Kepedulian sosial, Program Mengajar IMA (Sekolah Rakyat)  di rancang oleh Departemen Hubungan Eksternal IMA FEB-UH sebagai bentuk respon IMA terhadap kesenjangan realitas Pendidikan yang terjadi di indonesia saat ini.
           </p>
+        </div>
+      </div>
+    </div>
+    <!-- Project PATO -->
+    <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
+      <div class="col-xl-4 col-lg-5">
+        <div class="featured-text-pato text-center text-lg-left">
+          <h4>Pengaderan Awal <br>Tingkat Ormaju</h4>
+          <p class="text-black-50 mb-0">Bentuk pengkaderan formal yang ada dalam Lembaga Mahasiswa FEB UH adalah kegiatan pengkaderan yang telah diatur dalam AD/ART KEMA FEB UH. Kegiatan pengkaderan yang berlaku di lingkup KEMA FEB-UH menganut sistem yang berkelanjutan dan sistematis. <br><a href="" data-bs-toggle="modal" data-bs-target="#modalPATO">selengkapnya</a>
+          </p>
+        </div>
+      </div>
+      <div class="col-xl-8 col-lg-7">
+        <div id="dokumentasiPATO" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="../staticHome/assets/PATO/1.JPG" class="d-block w-100" alt="dokumentasi PATO">
+            </div>
+            <div class="carousel-item">
+              <img src="../staticHome/assets/PATO/2.JPG" class="d-block w-100" alt="dokumentasi PATO">
+            </div>
+            <div class="carousel-item">
+              <img src="../staticHome/assets/PATO/3.jpg" class="d-block w-100" alt="dokumentasi PATO">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#dokumentasiPATO" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#dokumentasiPATO" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Modal PATO -->
+    <div class="modal fade" id="modalPATO" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Pengaderan Awal Tingkat Ormaju (PATO)</h5>
+          </div>
+          <div class="modal-body">
+            <p class="text-black-50 mb-3" style="text-align: justify;">
+              Bentuk pengkaderan formal yang ada dalam Lembaga Mahasiswa FEB UH adalah kegiatan pengkaderan yang telah diatur dalam AD/ART KEMA FEB UH. Kegiatan pengkaderan yang berlaku di lingkup KEMA FEB-UH menganut sistem yang berkelanjutan dan sistematis. Berdasarkan Anggaran Rumah Tangga Kema FEB-UH BAB I Keanggotaan Keluarga Mahasiswa Fakultas Ekonomi dan Bisnis Universitas Hasanuddin Pasal 1 Jenjang Penerimaan Anggota, kegiatan pengkaderan dimulai dari tahap Pengaderan Awal Tingkat Senat Mahasiswa FEB-UH (Sema FEB-UH) yang dimana merupakan prosesi penerimaan calon anggota Kema FEB-UH yang diadakan oleh Sema FEB-UH. Selanjutnya. Pengaderan Aawal Tingkat Organisasi Mahasiswa Jurusan FEB-UH (Ormaju FEB-UH) adalah prosesi penerimaan calon anggota Kema FEB-UH yang diadakan oleh Ormaju FEB-UH dan diikuti oleh calon anggota Kema sesuai dengan program studi.
+            </p>
+            <h5>Tujuan PATO</h5>
+            <ol class="text-black-50">
+              <li>Memahamkan pentingnya kesadaran berlembaga pada peserta dalam lingkup IMA FEB UH.</li>
+              <li>Memperkenalkan calon anggota kema IMA FEB-UH kepada Kema dan Alumni  IMA FEB-UH</li>
+            </ol>
+            <div class="ratio ratio-21x9">
+              <iframe src="https://www.youtube.com/embed/vtSakLuVi7Y?start=300" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <a href="https://drive.google.com/drive/folders/1qL8Y1_JRvq4DCOCJJOsb0ugyEjObaf4I" target="_blank"><button type="button" class="btn btn-primary">Dokumentasi PATO</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="w-100 my-5"> <!-- Divider -->
+    <!-- Project BKMA-->
+    <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
+      <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="../staticHome/assets/BKMA/BKMA.JPG" alt="..." /></div>
+      <div class="col-xl-4 col-lg-5">
+        <div class="featured-text text-center text-lg-left">
+          <h4>Bina Kader Mahasiswa Akuntansi (BKMA)</h4>
+          <p class="text-black-50 mb-0">
+            Bina Kader Mahasiswa Akuntantasi yang disingkat dengan BKMA merupakan program kerja dari Departemen Pengaderan. Prosesi ini merupakan prosesi tahap ketiga atau tahap terakhir dari jenjang pengaderan. Pada prosesi jenjang ini menanamkan nilai keprofesian dan kepedulian sosial. <br><a href="" data-bs-toggle="modal" data-bs-target="#modalBKMA">selengkapnya</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Modal BKMA -->
+    <div class="modal fade" id="modalBKMA" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Bina Kader Mahasiswa Akuntansi (BKMA)</h5>
+          </div>
+          <div class="modal-body">
+            <p class="text-black-50 mb-3" style="text-align: justify;">
+              Bentuk Pengaderan formal yang ada dalam Lembaga Mahasiswa FEB UH adalah kegiatan pengaderan yang telah diatur dalamn AD/ART KEMA FEB UH. Kegiatan pengaderan yang berlaku di lingkup KEMA FEB-UH menganut sistem yang berkelanjutan dan sistematis. Berdasarkan Anggaran Rumah Tangga Kema FEB-UH BAB I Keanggotaan Keluarga Mahasiswa Fakultas Ekonomi dan Bisnis Universitas Hasanuddin Pasal 1 Jenjang Penerimaan Anggota, kegiatan pengaderan dimulai dari tahap Pengaderan Awal Tingkat Senat Mahasiswa FEB-UH (Sema FEB-UH) yang dimana merupakan prosesi penerimaan calon anggota Kema FEB-UH yang diadakan oleh Sema FEB-UH. Selanjutnya, Pengaderan Awal Tingkat Organisasi Mahasiswa Jurusan FEB-UH (Ormaju FEB-UH) adalah prosesi penerimaan calon anggota Kema FEB-UH yang telah melulusi PATS yang diadakan oleh Ormaju FEB-UH dan diikuti oleh calon anggota nKema sesuai dengan program studi.
+            </p>
+            <h5>Tujuan BKMA</h5>
+            <ol class="text-black-50">
+              <li>Memperluas wawasan peserta terkait wacana sosial kontemporer</li>
+              <li>Mengembangkan nilai-nilai kepemimpinan peserta BKMA IMA FEB-UH</li>
+            </ol>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
         </div>
       </div>
     </div>
@@ -60,31 +168,127 @@
     </div>
     <!-- Project Orasi-->
     <div class="row gx-0 justify-content-center">
-      <div class="col-lg-6"><img class="img-fluid" src="../staticHome/assets/img/demo-image-02.jpg" alt="..." /></div>
+      <div class="col-lg-6"><img class="img-fluid w-100" src="../staticHome/assets/Orasi/orasi.jpg" alt="..." /></div>
       <div class="col-lg-6 order-lg-first">
         <div class="bg-black text-center h-100 project">
           <div class="d-flex h-100">
             <div class="project-text w-100 my-auto text-center text-lg-right">
               <h4 class="text-white">Orasi</h4>
-              <p class="mb-0 text-white-50">ORASI merupakan program kerja Departemen Keilmuan yang bertanggung jawab terhadap peningkatan kapasitas keilmuan kader dan bertanggung jawab  terhadap pengawalan, pengkajian serta internalisasi isu Akuntansi
-              </p>
-              <hr class="d-none d-lg-block mb-0 me-0" />
-            </div>
+              <p class="mb-0 text-white-50">ORASI merupakan program kerja Departemen Keilmuan yang bertanggung jawab terhadap peningkatan kapasitas keilmuan kader dan bertanggung jawab  terhadap pengawalan, pengkajian serta internalisasi isu Akuntansi. <br><a href="" data-bs-toggle="modal" data-bs-target="#modalOrasi">selengkapnya</a></p>
+            </p>
+            <hr class="d-none d-lg-block mb-0 me-0" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Orasi -->
+    <div class="modal fade" id="modalOrasi" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Orasi (Obrolan Seputar Akuntansi)</h5>
+          </div>
+          <div class="modal-body">
+            <p class="text-black-50 mb-3" style="text-align: justify;">
+              ORASI merupakan program kerja departemen keilmuan yang mewadahi pengembangan basis keilmuan kader dan menambah pengetahuan anggota KEMA dan calon KEMA mengenai wacana/isu akuntansi saat ini yaitu <strong class="text-success">Green Accounting</strong>. ORASI hadir dalam dua bentuk perspektif yaitu dari <strong>sisi akuntansi</strong> itu sendiri dan  <strong>sisi ekonomi politik.</strong>Secara singkat, green accounting dapat memberikan informasi mengenai sejauh mana organisasi atau perusahaan memberikan kontribusi positif maupun negatif terhadap kualitas hidup manusia dan lingkungannya.
+            </p>
+            <p class="text-black-50 mb-3" style="text-align: justify;">
+              Konsep <strong class="text-success">green accounting</strong> sudah mulai berkembang sejak tahun 1970-an di Eropa. Akibat tekanan lembaga-lembaga bukan pemerintah dan meningkatnya kesadaran lingkungan di kalangan masyarakat yang mendesak agar perusahaan- perusahaan bukan sekedar berkegiatan industri demi bisnis saja, tetapi juga menerapkan pengelolaan lingkungan. Tujuannya adalah meningkatkan efisiensi pengelolaan lingkungan dengan melakukan penilaian kegiatan lingkungan dari sudut pandang biaya (environmental costs) dan manfaat atau efek (economic benefit), serta menghasilkan efek perlindungan lingkungan
+            </p>
+            <h5>Kendala Green Accounting</h5>
+            <p class="text-black-50 mb-3" style="text-align: justify;">
+              Dengan struktur governance yang saat ini masih menekankan hanya pada kepentingan pemegang saham, maka sulit bagi stakeholders untuk menuntut akuntabilitas perusahaan melalui mekanisme governance. Untuk mengkompensasi risiko yang ditanggung pemegang saham, maka mereka diberikan hak untuk mengawasi dan mengatur kepengurusan perusahaan. Oleh karenanya, yang diperlukan adalah menyediakan instrumen tambahan dalam struktur governance yang mendorong terciptakan kegiatan dan pelaporan CSR, misalnya dibentuknya komite CSR. Hingga kini belum ada aturan yang mewajibkan perusahaan untuk memiliki Komite CSR dan saat ini, sangat jarang perusahaan di Indonesia memiliki komite CSR. Keberadaan komite CSR terutama sangat penting untuk perusahaan yang berada di sektor yang potensial menimbulkan eksternalitas negatif (misalnya sektor kehutanan, pertambangan).
+            </p>
+            <h5>Sebuah konsep dengan tujuan yang sangat mulia, namun dalam realitanya apakah benar terjadi seperti demikian?</h5>
+            <p class="text-black-50 mb-3" style="text-align: justify;">
+              Namun, dalam implementasinya banyak kemudian perusahaan yang menerapkan Akuntansi hijau ini sebagai strategi untuk penghindaran pajak (tax avoidance). Belum lagi banyaknya kebermanfaatan non-ekonomi yang akan perusahaan peroleh ketika menerapkan ini dikarenakan bagimana masyarakat saat ini yang lebih interest ke hal-hal yang berbau go green atau hal-hal semacamnya. Selain itu hal lain yang membuat kebermanfaat sangat mulai dari tujuan akuntansi hijau ini tereduksi karena pada realisasinya banyak biaya-biaya untuk melaksanakan CSR, TJSLP dan green business pada akhirnya juga diperhitungkan dalam komponen penentuan harga jual produk atau jasa (pricing strategy) yang akan dibebankan kepada masyarakat pembeli atau konsumen. Hal ini kemudian yang menjawab bahwa penerapan Akuntansi hijau di banyak perusahaan bukan lagi karena kepedulian, kemurahan hati perusahaan pada lingkungan dan masyarakat, namun kembali lagi bahwa semua itu tidak jauh dari akumulasi keuntungan tanpa batas.
+            </p>
+            <h5>Topik Orasi</h5>
+            <ol class="text-black-50">
+              <li>Green Accounting is more about The Company's Economic Interests or Environmental Preservation</li>
+              <li>Green business vs Green Accounting</li>
+              <li>Improvement in Higher Education : Get Closer with University Social Responsibility</li>
+              <li>Green Accounting in The Concept of Rahmatan Lil Alamin</li>
+              <li>Is Carbon Tax Neoliberal Solution to Climate Change</li>
+              <li>Carbon Offsetting and Formulating Carbon Strategy for The World</li>
+            </ol>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
     </div>
     <!-- Project Kelas EKOPOL -->
     <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
-      <div class="col-lg-6"><img class="img-fluid" src="../staticHome/assets/img/demo-image-01.jpg" alt="..." /></div>
+      <div class="col-lg-6">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="../staticHome/assets/Ekopol/1.jpeg" class="d-block w-100 img-fluid" alt="Ekopol">
+            </div>
+            <div class="carousel-item">
+              <img src="../staticHome/assets/Ekopol/2.jpeg" class="d-block w-100 img-fluid" alt="Ekopol">
+            </div>
+            <div class="carousel-item">
+              <img src="../staticHome/assets/Ekopol/3.jpeg" class="d-block w-100 img-fluid" alt="Ekopol">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
       <div class="col-lg-6">
         <div class="bg-black text-center h-100 project">
           <div class="d-flex h-100">
             <div class="project-text w-100 my-auto text-center text-lg-left">
               <h4 class="text-white">Kelas Ekonomi-Politik</h4>
-              <p class="mb-0 text-white-50">Kelas Ekonomi-Politik hadir sebagai bentuk penyediaan wadah peningkatan kapasitas keilmuan untuk menjawab permasalahan kurangnya pengetahuan terkait isu, dari hasil observasi yang dilakukan terhadap kondisi internal Kema FEB-UH Departemen Akuntansi.</p>
+              <p class="mb-0 text-white-50">Kelas Ekonomi-Politik hadir sebagai bentuk penyediaan wadah peningkatan kapasitas keilmuan untuk menjawab permasalahan kurangnya pengetahuan terkait isu, dari hasil observasi yang dilakukan terhadap kondisi internal Kema FEB-UH Departemen Akuntansi. <br><a href="" data-bs-toggle="modal" data-bs-target="#modalEkopol">selengkapnya</a></p>
               <hr class="d-none d-lg-block mb-0 ms-0" />
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Ekopol -->
+    <div class="modal fade" id="modalEkopol" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Kelas Ekonomi-Politik</h5>
+          </div>
+          <div class="modal-body">
+            <p class="text-black-50 mb-3" style="text-align: justify;">
+              Deliarnov dalam bukunya yang berjudul Ekonomi Politik mengatakan bahwa “Dengan semakin mengglobalnya perekonomian, banyaknya campur tangan lembaga-lembaga keuangan internasional seperti IND dan Bank Dunia, diagendakannya perekonomian global pleh WTO, serta banyaknya keterlibatan perusahaan-perusahaan multinasional dari negara-negara maju yang didukung oleh negara masing-masing—semuanya karena pengaruh Neoliberalisme—maka ekonomi tidak bisa lagi dipisahkan dengan politik.”
+            </p>
+            <p class="text-black-50 mb-3" style="text-align: justify;">
+              Pemaknaan terhadap ekonomi politik atau ekopol tidak terbatas pada studi tentang teori sosial dan keterbelakangan. Menurut Caporaso & Levine (1993), pada awalnya ekonomi politik dimaksudkan untuk memberikan saran mengenai pengelolaan masalah-masalah ekonomi kepada para penyelenggara negara. Hal ini sesuai dengan pemaknaan ekonomi politik pada waktu itu sebagai pengelolaan masalah-masalah ekonomi negara (political Economy referred to the management of economic affairs of the state). Selanjutnya, ekonomi politik oleh pakar-pakar Ekonomi Politik Baru lebih diartikan sebagai analisis ekonomi terhadap proses politik. Dalam kajian tersebut mereka mempelajari institusi politik sebagai entitas yang bersinggungan dengan pengambilan keputusan ekonomi-politik, yang berusaha mempengaruhi pengambilan keputusan dan pilihan publik, baik untuk kepentingan kelompoknya maupun untuk kepentingan masyarakat luas. Salah satu fenomena yang menyasar pada persoalan negara dan ekonomi, seperti bagaimana ekonomi diorganisir oleh negara dan bagaimana publik diposisikan di hadapan kepentingan ekonomi dan politik pemilik kekuasaan. Menggunakan ekonomi politik sebagai perspektif artinya kita dapat melihat keputusan ekonomi sebagai keputusan politik dan keputusan politik diambil dengan pertimbangan yang berbasis pada kepentingan ekonomi itu sendiri.
+            </p>
+            <p class="text-black-50 mb-3" style="text-align: justify;">
+              Mengapa Kelas Ekopol? <br>Kelas Ekopol hadir sebagai wadah yang akan membantu peserta kelas untuk melihat realitas sosial yang ada dengan pendekatan ekonomi politik. Melalui kelas ini, diharapkan peserta kelas terutama Kema IMA FEB UH dapat menjadikan ekonomi politik sebagai landasan analisis dalam melihat permasalahan sosial.
+            </p>
+            <h5>Kurikulum Kelas Ekopol</h5>
+            <p class="text-black-50 mb-3" style="text-align: justify;">
+              Kelas akan diadakan sebanyak 6 kali pertemuan, dengan menggunakan metode diskusi yang tentunya setiap pertemuan akan dibawakan oleh orang-orang yang dianggap memiliki kapabilitas dan abilitas mengenai materi-materi Kelas Ekopol. Dengan menjadikan Deliarnov sebagai referensi utama Kelas Ekopol, maka kurikulum yang terbentuk adalah:
+            </p>
+            <ol class="text-black-50">
+              <li>Pengantar Ekonomi Politik</li>
+              <li>Ekonomi Politik Liberal Klasik</li>
+              <li>Ekonomi Politik Sosialisme (Marxisme)</li>
+              <li>Ekonomi Politik Neoklasik</li>
+              <li>Ekonomi Politik Radikal: Struktualisme dan Dependensia</li>
+              <li>Ekonomi Politik Kelembagaan</li>
+              <li>Ekonomi Politik Neoliberalisme</li>
+            </ol>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
@@ -92,8 +296,6 @@
   </div>
   <h3 class="text-center mt-3"><a href="">lihat proker lainnya >></a></h3>
 </section>
-<!-- Signup-->
-
 <!-- Contact-->
 <section class="contact-section bg-black">
   <div class="container px-4 px-lg-5">

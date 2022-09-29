@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block navbar %}
+<li class="nav-item"><a class="nav-link" href="/home">Home Page</a></li>
+{% if 'user' in session %}
+<li class="nav-item"><a class="nav-link" href="" data-bs-toggle="modal" data-bs-target="#buatTulisan">Buat Tulisan</a></li>
+<li class="nav-item"><a class="nav-link" href="/dashboard/">Dashboard</a></li>
+{% else %}
+<li class="nav-item"><a class="nav-link" href="/admin/login">Login</a></li>
+{% endif %}
+{% endblock %}
+{% block content %}
+{{ ckeditor.load() }}
+<!-- Masthead-->
+<header class="masthead">
+  <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+    <div class="d-flex justify-content-center">
+      <div class="text-center">
+        <h1 class="mx-auto my-0 pt-5 text-uppercase">tulisan kema pengurus <br>ima</h1>
+        <!-- <a class="btn btn-primary mt-3" href="/tentang_ima">Tentang IMA</a> -->
+        <i class="bi bi-arrow-down-circle-fill display-3 text-light text-opacity-50 mt-3"></i>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- Review Buku -->
+<div class="container">
+  <div class="row">
+    {% for d in data %}
+    <div class="col-md-6">
+      <div class="card my-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="{{ d.foto_buku }}" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <a href="/tulisan_kkn/{{ d.id }}" class="text-decoration-none"><h5 class="card-title">{{ d.judul }}</h5></a>
+              <p class="card-text"><small class="text-muted">{{ d.penulis }}</small></p>
+              <p class="card-text"><small class="text-muted">{{ d.tanggal }}</small></p>
+            </div>
+            {% if 'user' in session %}
+            <a href="/tulisan_kkn/hapus/{{ d.id }}" class="btn btn-danger btn-small">Hapus</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<!-- Buat Review -->
+<div class="modal fade" id="buatTulisan" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="buatBeritaLabel">Form Tulisan</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form action="{{ url_for('home.buat_tulisan') }}" method="POST" enctype="multipart/form-data">
+          <div class="mb-3">
+            <label for="judul" class="form-label">Judul Buku</label>
+            <input type="text" class="form-control" id="judul" name="judul" required>
+          </div>
+          <div class="mb-3">
+            <label for="penulis" class="form-label">Nama Penulis</label>
+            <input type="text" class="form-control" id="penulis" name="penulis" required>
+          </div>
+          <div class="mb-3">
+            <label for="foto" class="form-label">Foto Buku</label>
+            <input class="form-control form-control-sm" id="foto" name="foto" type="file" accept="image/*" required>
+          </div>
+          <div class="mb-3">
+            <label for="ckeditor" class="form-label">Isi Tulisan</label>   
+            {{ ckeditor.create() }}
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Post</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

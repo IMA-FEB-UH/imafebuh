@@ -4,44 +4,6 @@
 {% block _content %}
 <div class="container-fluid px-4">
   <h1 class="mt-4">Buku IMA</h1>
-  <!-- <div class="row">
-    <div class="col-xl-3 col-md-6">
-      <div class="card bg-primary text-white mb-4">
-        <div class="card-body">Primary Card</div>
-        <div class="card-footer d-flex align-items-center justify-content-between">
-          <a class="small text-white stretched-link" href="#">View Details</a>
-          <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-        </div>
-      </div>
-    </div>
-    <div class="col-xl-3 col-md-6">
-      <div class="card bg-warning text-white mb-4">
-        <div class="card-body">Warning Card</div>
-        <div class="card-footer d-flex align-items-center justify-content-between">
-          <a class="small text-white stretched-link" href="#">View Details</a>
-          <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-        </div>
-      </div>
-    </div>
-    <div class="col-xl-3 col-md-6">
-      <div class="card bg-success text-white mb-4">
-        <div class="card-body">Success Card</div>
-        <div class="card-footer d-flex align-items-center justify-content-between">
-          <a class="small text-white stretched-link" href="#">View Details</a>
-          <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-        </div>
-      </div>
-    </div>
-    <div class="col-xl-3 col-md-6">
-      <div class="card bg-danger text-white mb-4">
-        <div class="card-body">Danger Card</div>
-        <div class="card-footer d-flex align-items-center justify-content-between">
-          <a class="small text-white stretched-link" href="#">View Details</a>
-          <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-        </div>
-      </div>
-    </div>
-  </div> -->
   <div class="card mb-4">
     <div class="card-header">
       <i class="fas fa-table me-1"></i>
@@ -51,32 +13,35 @@
       <table id="bukuIMA">
         <thead>
           <tr>
+            <th>No.</th>
+            <th>Kode Buku</th>
             <th>Judul Buku</th>
-            <th>Qty</th>
+            <th>Penulis</th>
             <th>Ketersediaan</th>
           </tr>
         </thead>
         <tbody>
+          {% for book in books %}
           <tr>
-            <td>Laskar Pelangi</td>
-            <td>2</td>
+            <td>{{ loop.index }}</td>
+            <td>{{ book.kode_buku }}</td>
+            <td>{{ book.judul_buku }}</td>
+            <td>{{ book.penulis_buku }}</td>
+            {% if book.keterangan_buku == 'A' %}
             <td><span class="badge bg-success">Tersedia</span></td>
-          </tr>
-          <tr>
-            <td>Garrett Winters</td>
-            <td>Accountant</td>
+            {% elif book.keterangan_buku == 'B' %}
+            <td><span class="badge bg-warning">Dipinjam</span></td>
+            {% elif book.keterangan_buku == 'T' %}
             <td><span class="badge bg-danger">Tidak Tersedia</span></td>
+            {% else %}
+            {% endif %}
           </tr>
-          <tr>
-            <td>Ashton Cox</td>
-            <td>Junior Technical Author</td>
-            <td><span class="badge bg-success">Tersedia</span></td>
-          </tr>
+          {% endfor %}
         </tbody>
       </table>
     </div>
   </div>
-  <div class="card mb-4">
+  <!-- <div class="card mb-4">
     <div class="card-header">
       <i class="fas fa-table me-1"></i>
       Data Peminjam Buku IMA
@@ -121,6 +86,6 @@
         </tbody>
       </table>
     </div>
-  </div>
+  </div> -->
 </div>
 {% endblock %}

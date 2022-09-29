@@ -11613,11 +11613,12 @@ body {
 
 .about-section {
   padding-top: 10rem;
+  padding-bottom: 10rem;
   background: rgb(0,0,0);
   background: url(../assets/img/rm222-mind-22.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
+  height: 100%;
 }
 .about-section p {
   margin-bottom: 5rem;
@@ -11632,7 +11633,13 @@ body {
 @media (min-width: 992px) {
   .projects-section .featured-text {
     padding: 0 0 0 2rem;
-    border-left: 0.5rem solid #64a19d;
+    border-left: 0.5rem solid #8d6bdb;
+  }
+}
+@media (min-width: 992px) {
+  .projects-section .featured-text-pato {
+    padding: 0 2rem 0 0;
+    border-right: 0.5rem solid #8d6bdb;
   }
 }
 .projects-section .project-text {

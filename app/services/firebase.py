@@ -1,5 +1,5 @@
 import firebase_admin
-from firebase_admin import credentials, firestore
+from firebase_admin import credentials, firestore, storage
 
 cert = {
     "type": "service_account",
@@ -15,5 +15,6 @@ cert = {
 }
 
 cred = credentials.Certificate(cert)
-firebase_admin.initialize_app(cred)
+firebase_admin.initialize_app(cred, {"storageBucket": "ima-feb-uh.appspot.com"})
 DB = firestore.client()
+Storage = storage.bucket()
